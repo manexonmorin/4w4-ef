@@ -39,7 +39,7 @@ get_header();
 				<?php endif; 			
 				get_template_part( 'template-parts/content', 'cours-gabarit' ); 
 				?>
-			<?php $precedent = $tPropriété['session']; ?> 
+			<h2><?php $precedent = $tPropriété['session']; ?> </h2>
 			<?php endwhile; ?>
 			</section>
 			<?php endif; ?>

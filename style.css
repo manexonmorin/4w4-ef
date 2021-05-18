@@ -1464,12 +1464,16 @@ La barre du millieu
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 article {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  text-align: center;
+  width: 11vw;
+  margin-bottom: 10%;
 }
 
 /* local footer
