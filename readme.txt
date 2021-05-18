@@ -7,3 +7,11 @@
 --- Je n'ai pas réussi a changer les couleurs des cours spécifique.
 --- Le triage des cours est par rang et non par colonne.
 --- J'ai sauvegarder la page en index.html
+
+** Lien Git Hub pages **
+https://manexonmorin.github.io/4w4-ef/
+
+P.S: ajouter index.html pour que ça fonctionne
+
+** Lien vers mon Git Hub **
+https://github.com/manexonmorin/4w4-ef
