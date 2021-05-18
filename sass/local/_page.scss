@@ -31,8 +31,17 @@
             margin :0;
         }
     }
+}
 
+.grille-cours{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
+article{
+    display: flex;
+    flex-direction: column;    
+    border: 1px solid black;
 }
  
-

@@ -21,36 +21,54 @@ get_header();
 				?>
 			</header><!-- .page-header -->
 
+
+			<section class="grille-cours">
 			<?php
 			/* Start the Loop */
+			$precedent = "XXXXXX";
 			while ( have_posts() ) :
 				the_post();
-				$titre = get_the_title();
-				$typeCours = get_field('type_de_cours');
-				$nbHeure = substr($titre,-4,3);
-				$sigle = substr($titre, 0, 7);
-			?>
-
-			<article>
-				<p> <?php echo $typeCours; ?> </p>
-				<a href="<?php echo get_permalink()?>"><?php echo $sigle ?></a>
-				<p> <?php echo $nbHeure; ?> </p>
-			</article>
-
-			<?php
-			endwhile;
-
-			//the_posts_navigation();
-
-		else :
-
-			//get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+				convertirTableau($tPropriété);
+				
+				if($tPropriété['session'] != $precedent):
+					if("XXXXXX" != $precedent) :?>
+						</section>
+					<?php endif; ?>
+				<h2><?php $tPropriété['session'] ?></h2>
+				<section><?php echo $tPropriété['session']; ?>
+				<?php endif; 			
+				get_template_part( 'template-parts/content', 'cours-gabarit' ); 
+				?>
+			<?php $precedent = $tPropriété['session']; ?> 
+			<?php endwhile; ?>
+			</section>
+			<?php endif; ?>
+		
 
 	</main><!-- #main -->
 
 <?php
 get_sidebar();
 get_footer();
+
+function convertirTableau(&$tPropriété)
+{
+	/*
+	$titre = get_the_title(); 
+	// 582-1W1 Mise en page Web (75h)
+	$sigle = substr($titre, 0, 7);
+	$nbHeure = substr($titre,-4,3);
+	$titrePartiel =substr($titre,8,-6);
+	$session = substr($titre, 4,1);
+	// $contenu = get_the_content();
+	// $resume = substr($contenu, 0, 200);
+	$typeCours = get_field('type_de_cours');
+*/
+
+	$tPropriété['titre'] = get_the_title(); 
+	$tPropriété['sigle'] = substr($tPropriété['titre'], 0, 7);
+	$tPropriété['nbHeure'] = substr($tPropriété['titre'],-4,3);
+	$tPropriété['titrePartiel'] = substr($tPropriété['titre'],8,-6);
+	$tPropriété['session'] = substr($tPropriété['titre'], 4,1);
+	$tPropriété['typeCours'] = get_field('type_de_cours');
+}
